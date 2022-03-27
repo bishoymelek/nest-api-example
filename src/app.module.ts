@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
+import { QuestionnaireModule } from './questionnaire/questionnaire.module';
+import { UserQuestionnaireAnswerModule } from './user-questionnaire-answer/user-questionnaire-answer.module';
 
 @Module({
   imports: [
@@ -15,8 +16,10 @@ import { PassportModule } from '@nestjs/passport';
     PassportModule,
     AuthModule,
     UsersModule,
+    QuestionnaireModule,
+    UserQuestionnaireAnswerModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

@@ -19,8 +19,7 @@ export class AppController {
   @Post('auth/register')
   async register(@Body() createUserDto: CreateUserDto) {
     try {
-      const user = await this.authService.register(createUserDto);
-      return user;
+      return await this.authService.register(createUserDto);
     } catch (error) {
       const { status, message } = serviceErrorHandler(error);
       throw new HttpException(message || 'Conflict', status);
