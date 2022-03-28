@@ -21,8 +21,12 @@ export class QuestionnaireService {
     return createdDoc.save();
   }
 
-  findAll() {
-    return `This action returns all questionnaire`;
+  async findAll() {
+    const foundList = await this.questionnaireModel
+      .find()
+      .sort({ qLocation: 'asc' });
+
+    return foundList;
   }
 
   findOne(id: number) {
